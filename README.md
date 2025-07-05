@@ -27,13 +27,57 @@ spring-config-demo/
 └── spring-config.properties
 ```
 
+## Recent Upgrades
+
+This project has been upgraded from legacy versions to modern, supported versions:
+
+### Previous Versions
+- **Spring Boot**: 2.1.1.RELEASE → **3.2.2**
+- **Spring Cloud Config**: Greenwich.RC2 → **2023.0.0**
+- **Java**: 1.8 → **21** (compatible with Java 17+)
+- **Maven**: 3.5.4 → **3.9.6**
+- **JGit**: 4.8.0 → **6.8.0**
+
+### Upgrade Benefits
+- **Security**: Latest security patches and vulnerability fixes
+- **Performance**: Improved performance and memory usage
+- **Features**: Access to latest Spring Boot and Java features
+- **Support**: Long-term support versions for better maintenance
+
+### Breaking Changes Addressed
+- Updated test framework from JUnit 4 to JUnit 5
+- Updated Spring Boot configuration properties
+- Enhanced Maven build configuration
+- Improved CI/CD pipeline configuration
+
+## Upgrade Status
+
+✅ **Sprint Story 1**: Java 21 and Maven Infrastructure Upgrade - **COMPLETED**
+- Updated Java version from 1.8 to 17/21 (compatible with Java 17+)
+- Updated Maven wrapper from 3.5.4 to 3.9.6
+- Updated Maven compiler plugin to 3.12.1
+- Updated Maven Surefire plugin to 3.2.5
+- Updated CI/CD pipeline (Jenkinsfile) for Java 17/21
+
+✅ **Sprint Story 2**: Spring Boot 3.2.x and Spring Cloud 2023.0.x Upgrade - **COMPLETED**
+- Updated Spring Boot from 2.1.1.RELEASE to 3.2.2
+- Updated Spring Cloud Config from Greenwich.RC2 to 2023.0.0
+- Updated test framework from JUnit 4 to JUnit 5
+- Verified configuration compatibility
+
+✅ **Sprint Story 3**: Dependencies Update, Testing & Documentation - **COMPLETED**
+- Updated JGit from 4.8.0 to 6.8.0
+- Created comprehensive test suite
+- Updated documentation (README.md, MIGRATION.md)
+- Added integration tests for config server endpoints
+
 ## Technologies Used
 
-- **Spring Boot**: 2.1.1.RELEASE
-- **Spring Cloud Config Server**: Greenwich.RC2
-- **Java**: 1.8
-- **Maven**: 3.5.4
-- **JGit**: 4.8.0 (for Git repository integration)
+- **Spring Boot**: 3.2.2
+- **Spring Cloud Config Server**: 2023.0.0
+- **Java**: 17+ (configured for Java 21, compatible with Java 17+)
+- **Maven**: 3.9.6
+- **JGit**: 6.8.0 (for Git repository integration)
 
 ## Features
 
@@ -75,8 +119,8 @@ The project includes several property files for different clients:
 
 ## Prerequisites
 
-- Java 8 or higher
-- Maven 3.5+
+- Java 17 or higher (configured for Java 21)
+- Maven 3.9+
 - Git (for repository operations)
 
 ## Getting Started
@@ -207,7 +251,7 @@ pipeline {
 
 1. **Port conflicts**: Ensure port 8980 is available
 2. **Git repository access**: Verify Git repository URL and credentials
-3. **Java version**: Ensure Java 8+ is installed
+3. **Java version**: Ensure Java 17+ is installed
 4. **Maven wrapper**: Use `./mvnw` instead of `mvn` for consistent builds
 
 ### Logging

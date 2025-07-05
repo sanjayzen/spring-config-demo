@@ -1,10 +1,45 @@
 pipeline {
     agent any 
+    
+    tools {
+        jdk 'JDK21'
+        maven 'Maven3.9'
+    }
+    
+    environment {
+        JAVA_HOME = tool 'JDK21'
+        PATH = "$JAVA_HOME/bin:$PATH"
+    }
+    
     stages {
-        stage('Stage 1') {
+        stage('Checkout') {
             steps {
-                echo 'Hello world!' 
+                checkout scm
             }
+        }
+        
+        stage('Build') {
+            steps {
+                sh './mvnw clean compile'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh './mvnw test'
+            }
+        }
+        
+        stage('Package') {
+            steps {
+                sh './mvnw package'
+            }
+        }
+    }
+    
+    post {
+        always {
+            publishTestResults(testResultsPattern: 'target/surefire-reports/*.xml')
         }
     }
 }
